@@ -1,0 +1,1481 @@
+{
+	"info": {
+		"_postman_id": "f04a3052-f65a-4a6b-bd46-9605c82cc7f5",
+		"name": "TP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22989682"
+	},
+	"item": [
+		{
+			"name": "0-AltaUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "andres",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "1111",
+							"type": "text"
+						},
+						{
+							"key": "fechaIngreso",
+							"value": "12/11/2020",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "cocinero",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/app/usuarios/agregar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"usuarios",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarUsuarios",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njg2NDAyOTgsImV4cCI6MjE5NDI0MDI5OCwiYXVkIjoiZWVmOWE3Y2I1NGYzZDNkZjJhNzllYjk5YWEyMDI5MDkxYWEwOWEwZCIsImRhdGEiOnsibm9tYnJlIjoiZ29uemEiLCJwZXJmaWwiOiJzb2NpbyIsImNsYXZlIjoiMTExMSJ9LCJhcHAiOiJUZXN0IEpXVCJ9.0bLwEqTb0gWelHdL4TNWyMpVen43E1iN3B5hminVqbU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/usuarios/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarUsuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Andy",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "1111",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "cocinero",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "activo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/app/usuarios/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"usuarios",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BorrarUsuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njg2NDAyOTgsImV4cCI6MjE5NDI0MDI5OCwiYXVkIjoiZWVmOWE3Y2I1NGYzZDNkZjJhNzllYjk5YWEyMDI5MDkxYWEwOWEwZCIsImRhdGEiOnsibm9tYnJlIjoiZ29uemEiLCJwZXJmaWwiOiJzb2NpbyIsImNsYXZlIjoiMTExMSJ9LCJhcHAiOiJUZXN0IEpXVCJ9.0bLwEqTb0gWelHdL4TNWyMpVen43E1iN3B5hminVqbU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:666/app/usuarios/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"usuarios",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarProductos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/productos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"productos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1-AltaProductos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "milanesas de pollo",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "cocinero",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/app/productos/agregar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"productos",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarProducto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "precio",
+							"value": "250",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/app/productos/40",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"productos",
+						"40"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BorrarProducto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:666/app/productos/40",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"productos",
+						"40"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarMesas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/mesas/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"mesas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2-AltaMesa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "estado",
+							"value": "cerrada",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/app/mesas/agregar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"mesas",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarMesa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mozo}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "estado",
+							"value": "con cliente pagando",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/app/mesas/44",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"mesas",
+						"44"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BorrarMesa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njg2NDAyOTgsImV4cCI6MjE5NDI0MDI5OCwiYXVkIjoiZWVmOWE3Y2I1NGYzZDNkZjJhNzllYjk5YWEyMDI5MDkxYWEwOWEwZCIsImRhdGEiOnsibm9tYnJlIjoiZ29uemEiLCJwZXJmaWwiOiJzb2NpbyIsImNsYXZlIjoiMTExMSJ9LCJhcHAiOiJUZXN0IEpXVCJ9.0bLwEqTb0gWelHdL4TNWyMpVen43E1iN3B5hminVqbU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:666/app/mesas/211",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"mesas",
+						"211"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListarPedidos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/pedidos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"pedidos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditarPedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mozo}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "estado",
+							"value": "999999999",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/app/pedidos/299",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"pedidos",
+						"299"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BorrarPedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mozo}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:666/app/pedidos/299",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"pedidos",
+						"299"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LogParaObtenerToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "fabian",
+							"type": "text"
+						},
+						{
+							"key": "clave",
+							"value": "1111",
+							"type": "text"
+						},
+						{
+							"key": "perfil",
+							"value": "cervecero",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/app/usuarios/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"usuarios",
+						"login"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "gonza",
+							"disabled": true
+						},
+						{
+							"key": "clave",
+							"value": "1234",
+							"disabled": true
+						},
+						{
+							"key": "perfil",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3-AltaPedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mozo}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombreCliente",
+							"value": "Andres123",
+							"type": "text"
+						},
+						{
+							"key": "mesaId",
+							"value": "17",
+							"type": "text"
+						},
+						{
+							"key": "productos",
+							"value": "[{\"producto\":\"pizza\", \"cantidad\":\"1\"},{\"producto\":\"vino\", \"cantidad\":\"2\"},{\"producto\":\"cerveza\", \"cantidad\":\"3\"}]",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "fotoUrl",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "productos",
+							"value": "[{\"producto\":\"papas\", \"cantidad\":\"2\"},{\"producto\":\"cerveza\", \"cantidad\":\"2\"}]",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/app/pedidos/agregar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"pedidos",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.1-AsociarFotoAlPedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mozo}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fotoUrl",
+							"type": "file",
+							"src": "/C:/Users/ACER/Downloads/fondo-con-los-árboles-verdes-en-parque-32269425.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/app/pedidos/foto/9d2d8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"pedidos",
+						"foto",
+						"9d2d8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4-PendientesCocinero",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cocinero}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/detallesPedidos/pendientesCocinero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"detallesPedidos",
+						"pendientesCocinero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4-PendientesBartender",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bartender}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/detallesPedidos/pendientesBartender",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"detallesPedidos",
+						"pendientesBartender"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4-PendientesCervecero",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cervecero}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/detallesPedidos/pendientesCervecero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"detallesPedidos",
+						"pendientesCervecero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5-LevantarCervecero",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cervecero}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/detallesPedidos/levantarCervecero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"detallesPedidos",
+						"levantarCervecero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5-LevantarBartender",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bartender}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/detallesPedidos/levantarBartender",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"detallesPedidos",
+						"levantarBartender"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5-LevantarCocinero",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cocinero}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/detallesPedidos/levantarCocinero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"detallesPedidos",
+						"levantarCocinero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.0-ClienteVerTiempoPedido",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/pedidos/verTiempoPedido?codigoMesa=4093f&codigoPedido=9d2d8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"pedidos",
+						"verTiempoPedido"
+					],
+					"query": [
+						{
+							"key": "codigoMesa",
+							"value": "4093f"
+						},
+						{
+							"key": "codigoPedido",
+							"value": "9d2d8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.1-VerEstadoDePedidosYTiempo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/pedidos/tiempoYEstado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"pedidos",
+						"tiempoYEstado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6-ListosParaServirCocinero",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cocinero}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/detallesPedidos/listosCocinero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"detallesPedidos",
+						"listosCocinero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6-ListosParaServirBartender",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bartender}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/detallesPedidos/listosBartender",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"detallesPedidos",
+						"listosBartender"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6-ListosParaServirCervecero",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{cervecero}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/detallesPedidos/listosCervecero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"detallesPedidos",
+						"listosCervecero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7-VerificarPedidosListosParaServir",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mozo}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/pedidos/listos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"pedidos",
+						"listos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.1-ListarMesasYEstados",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/mesas/estados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"mesas",
+						"estados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8-CobrarMesa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{mozo}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/mesas/cobrar/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"mesas",
+						"cobrar",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9-CerrarMesa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/mesas/cerrarMesa/17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"mesas",
+						"cerrarMesa",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10-CargarEncuesta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codigoMesa",
+							"value": "4093f",
+							"type": "text"
+						},
+						{
+							"key": "codigoAlfanumerico",
+							"value": "9d2d8",
+							"type": "text"
+						},
+						{
+							"key": "puntuacionCocinero",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "puntuacionRestaurante",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "puntuacionMozo",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "puntuacionMesa",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "comentarios",
+							"value": "No vuelvo mas!!!",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/app/encuesta/agregar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"encuesta",
+						"agregar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10.1-VerTodasLasEncuestas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/encuesta/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"encuesta",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10.2-ObtenerMejoresComentarios",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/encuesta/mejoresComentarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"encuesta",
+						"mejoresComentarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11-TraerMesaMasUsada",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/mesas/mesaMasUsada",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"mesas",
+						"mesaMasUsada"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12-MostrarLogs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/logs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"logs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13-GenerarArchivoCSVdeProductos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Disposition",
+						"value": "attachment",
+						"type": "text"
+					},
+					{
+						"key": "filename",
+						"value": "productos.csv",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:666/app/productos/descargar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"productos",
+						"descargar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "14-LeerArchivo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "archivo",
+							"type": "file",
+							"src": "/C:/Users/ACER/Downloads/productos (2).csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/app/productos/archivo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"productos",
+						"archivo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
