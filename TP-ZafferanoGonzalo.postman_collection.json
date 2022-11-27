@@ -1454,6 +1454,9 @@
 		},
 		{
 			"name": "13-GenerarArchivoCSVdeProductos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -1465,7 +1468,7 @@
 						}
 					]
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Disposition",

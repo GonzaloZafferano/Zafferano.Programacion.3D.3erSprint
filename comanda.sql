@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2022 a las 03:21:48
+-- Tiempo de generación: 27-11-2022 a las 17:35:29
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -459,7 +459,11 @@ INSERT INTO `logs` (`idLog`, `idUsuario`, `fecha`, `accion`) VALUES
 (478, 1, '2026-11-22 14:18:30', 'Socio pide mejores comentarios'),
 (479, 1, '2026-11-22 14:18:34', 'Socio pide mesa mas usada'),
 (480, 1, '2026-11-22 14:18:37', 'Socio pide lista de logs'),
-(481, 1, '2026-11-22 14:18:53', 'Socio actualiza BBDD con archivo csv.');
+(481, 1, '2026-11-22 14:18:53', 'Socio actualiza BBDD con archivo csv.'),
+(482, 1, '2026-11-22 14:53:13', 'Socio pide lista de logs'),
+(483, 1, '2026-11-22 14:54:19', 'Socio pide lista de logs'),
+(484, 1, '2027-11-22 14:13:55', 'Socio pide mesas y estados'),
+(485, 1, '2027-11-22 14:15:34', 'Socio pide lista de logs');
 
 -- --------------------------------------------------------
 
@@ -716,7 +720,7 @@ ALTER TABLE `detallespedidos`
 -- AUTO_INCREMENT de la tabla `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `idLog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=482;
+  MODIFY `idLog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=486;
 
 --
 -- AUTO_INCREMENT de la tabla `mesas`

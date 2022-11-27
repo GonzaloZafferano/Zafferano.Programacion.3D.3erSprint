@@ -68,9 +68,11 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
     $group->get('[/]',  \ProductoController::class . ':TraerTodos');
     $group->put('/{id}[/]',  \ProductoController::class . ':ModificarUno');
     $group->delete('/{id}[/]',  \ProductoController::class . ':BorrarUno');  
-    $group->post('/descargar[/]',  \ProductoController::class . ':GenerarArchivoCSV');  
+ //   $group->get('/descargar[/]',  \ProductoController::class . ':GenerarArchivoCSV');  
     $group->post('/archivo[/]',  \ProductoController::class . ':LeerArchivoCSV')->add(new ValidarArchivoCSV());
   })->add(new ValidarSocio());
+
+  $app->get('/productos/descargar[/]',   \ProductoController::class . ':GenerarArchivoCSV');  
 
   $app->group('/mesas', function (RouteCollectorProxy $group) {
     $group->post('/agregar[/]',  \MesaController::class . ':CargarUno')->add(new ValidarSocio());
