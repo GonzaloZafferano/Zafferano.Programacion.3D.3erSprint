@@ -171,62 +171,76 @@ class MesaController extends Mesa implements IApiUsable
   {
     $mesaId = $args["id"];
 
-    LogController::CargarUno($request, "Mozo cobra mesa");
+    $header = $request->getHeaderLine('Authorization');
+    if(isset(explode("Bearer", $header)[1])){
+          
+      $token = trim(explode("Bearer", $header)[1]);
 
-    if(is_numeric($mesaId)){
+      $data = AutentificadorJWT::ObtenerData($token);            
+    
+      $nombre = $data->nombre;
+      $usuario = UsuarioController::obtenerUsuario($nombre);
 
-      $mesa = Mesa::obtenerMesaPorId($mesaId);    
-  
-      if ($mesa) {
-  
-        if (strcasecmp($mesa->estado, "con cliente pagando") != 0) {
-  
-          if (strcasecmp($mesa->estado, "con cliente comiendo") == 0) {
-  
-            $mesa->estado = "con cliente pagando";
-  
-            Mesa::modificarMesa($mesa);
-  
-              $pedido = PedidoController::obtenerPedidoParaCobrarPorMesaId($mesa->mesaId);
-  
-              if($pedido){
       
-  
-                $total = 0;
-                $detallesPedido = DetallesPedidoController::obtenerDetallesPorCodigoDePedido($pedido->codigoAlfanumerico);
+      if(is_numeric($mesaId)){
+        
+        $mesa = Mesa::obtenerMesaPorId($mesaId);    
+        
+        if ($mesa) {
+          
+          $pedido = PedidoController::obtenerPedidoParaCobrarPorMesaId($mesa->mesaId);
+          
+          if($pedido){         
+            if($usuario->empleadoId == $pedido->mozoId){
+              
+              if (strcasecmp($mesa->estado, "con cliente pagando") != 0) {
                 
-                if($detallesPedido){
+                if (strcasecmp($mesa->estado, "con cliente comiendo") == 0) {
                   
-                  foreach($detallesPedido as $detalle){
-                    $producto = ProductoController::obtenerProductoPorId($detalle->productoId);
-                    $total += $detalle->cantidad * $producto->precio;
-                  }
-                  $pedido->estado = "Terminado";
-      
-                  PedidoController::modificarEstadoPedido($pedido);
-      
-                  $payload = json_encode(array("mensaje" => "Mesa cobrada con exito. Total a pagar $". $total));
+                  LogController::CargarUno($request, "Mozo (id: ".$usuario->empleadoId.") cobra mesa");
 
+                  $mesa->estado = "con cliente pagando";
+                  Mesa::modificarMesa($mesa);
+                  
+                      $total = 0;
+                      $detallesPedido = DetallesPedidoController::obtenerDetallesPorCodigoDePedido($pedido->codigoAlfanumerico);
+                      
+                      if($detallesPedido){
+                        
+                        foreach($detallesPedido as $detalle){
+                          $producto = ProductoController::obtenerProductoPorId($detalle->productoId);
+                          $total += $detalle->cantidad * $producto->precio;
+                        }
+                        $pedido->estado = "Terminado";
+            
+                        PedidoController::modificarEstadoPedido($pedido);
+            
+                        $payload = json_encode(array("mensaje" => "Mesa cobrada con exito. Total a pagar $". $total));
+      
+                      }
+                    
+                  }else{
+                    $payload = json_encode(array("Error" => "La mesa debe tener un cliente comiendo para poder cobrarle."));
+                  }
+                } else {
+          
+                  $payload = json_encode(array("mensaje" => "La mesa ya tiene al cliente pagando."));
                 }
               }else{
-                $payload = json_encode(array("Error" => "No se encontro un pedido para la Mesa: " . $mesa->mesaId));
+                $usuario =  UsuarioController::obtenerUsuarioPorId($pedido->mozoId);
+                $payload = json_encode(array("Error" => "El cobro de la mesa le corresponde al mozo: " . $usuario->nombre));
               }
-  
-  
             }else{
-              $payload = json_encode(array("Error" => "La mesa debe tener un cliente comiendo para poder cobrarle."));
-            }
-          } else {
-    
-            $payload = json_encode(array("mensaje" => "La mesa ya tiene al cliente pagando."));
+              $payload = json_encode(array("Error" => "No se encontro un pedido para la Mesa: " . $mesa->mesaId));
           }
         } else {
           $payload = json_encode(array("Error" => "No se ha encontrado la mesa de id: " . $mesaId));
         }
+      }
+      else{
+        $payload = json_encode(array("mensaje" => "El id debe ser numerico."));
+      }
     }
-    else{
-      $payload = json_encode(array("mensaje" => "El id debe ser numerico."));
-     }
     $response->getBody()->write($payload);
     return $response
       ->withHeader('Content-Type', 'application/json');

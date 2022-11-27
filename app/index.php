@@ -104,6 +104,9 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
     $group->post('/listosCervecero[/]',  \DetallesPedidoController::class . ':ListoParaServirCervecero')->add(new ValidarCervecero());
     $group->post('/listosBartender[/]',  \DetallesPedidoController::class . ':ListoParaServirBartender')->add(new ValidarBartender());
     $group->post('/listosCocinero[/]',  \DetallesPedidoController::class . ':ListoParaServirCocinero')->add(new ValidarCocinero());  
+ 
+    $group->get('/pendientes[/]',  \DetallesPedidoController::class . ':mostrarDetallesDePedidosPendientes')->add(new ValidarMozoOSocio());  
+    $group->get('/enPreparacion[/]',  \DetallesPedidoController::class . ':mostrarDetallesDePedidosEnPreparacion')->add(new ValidarMozoOSocio());  
   });
 
 

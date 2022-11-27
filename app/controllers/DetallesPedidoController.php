@@ -107,27 +107,30 @@ class DetallesPedidoController extends DetallesPedido
       $header = $request->getHeaderLine('Authorization');
       $payload = json_encode(array("mensaje" => "No se han encontrado pedidos pendientes."));
 
-      $pedidosPorPerfil = DetallesPedido::obtenerDetallesDePedidoPorPerfil("cervecero");
+      $pedidosPorPerfil = DetallesPedido::pendientesPerfil("cervecero");
 
       $cantidadPendientes = count($pedidosPorPerfil);
 
       if($cantidadPendientes > 0){
         if(isset(explode("Bearer", $header)[1])){
             
-            $token = trim(explode("Bearer", $header)[1]);
-  
-                $data = AutentificadorJWT::ObtenerData($token);            
-             
-                $nombre = $data->nombre;
-                $usuario = UsuarioController::obtenerUsuario($nombre);
-  
-                DetallesPedido::levantarCervecero($usuario->empleadoId);
+        $token = trim(explode("Bearer", $header)[1]);
 
-                LogController::CargarUno($request, "Cervecero levanta pedidos");
-    
-              $payload = json_encode(array("mensaje" => "Se han levantado " .$cantidadPendientes. " pedidos."));
-  
-            }
+            $data = AutentificadorJWT::ObtenerData($token);            
+          
+            $nombre = $data->nombre;
+            $usuario = UsuarioController::obtenerUsuario($nombre);
+
+            foreach($pedidosPorPerfil as $pedido){
+            $pedido->empleadoId = $usuario->empleadoId;
+            DetallesPedido::levantarPedido($pedido);
+          }
+
+            LogController::CargarUno($request, "Cervecero levanta pedidos");
+
+          $payload = json_encode(array("mensaje" => "Se han levantado " .$cantidadPendientes. " pedidos."));
+
+        }
       }
 
       $response->getBody()->write($payload);
@@ -140,7 +143,7 @@ class DetallesPedidoController extends DetallesPedido
       $header = $request->getHeaderLine('Authorization');
       $payload = json_encode(array("mensaje" => "No se han encontrado pedidos pendientes."));
 
-      $pedidosPorPerfil = DetallesPedido::obtenerDetallesDePedidoPorPerfil("bartender");
+      $pedidosPorPerfil = DetallesPedido::pendientesPerfil("bartender");
 
       $cantidadPendientes = count($pedidosPorPerfil);
 
@@ -154,7 +157,10 @@ class DetallesPedidoController extends DetallesPedido
                 $nombre = $data->nombre;
                 $usuario = UsuarioController::obtenerUsuario($nombre);
   
-                DetallesPedido::levantarBartender($usuario->empleadoId);
+                foreach($pedidosPorPerfil as $pedido){
+                  $pedido->empleadoId = $usuario->empleadoId;
+                  DetallesPedido::levantarPedido($pedido);
+                }
     
                 LogController::CargarUno($request, "Bartender levanta pedidos");
 
@@ -173,8 +179,7 @@ class DetallesPedidoController extends DetallesPedido
       $header = $request->getHeaderLine('Authorization');
       $payload = json_encode(array("mensaje" => "No se han encontrado pedidos pendientes."));
 
-      $pedidosPorPerfil = DetallesPedido::obtenerDetallesDePedidoPorPerfil("cocinero");
-
+      $pedidosPorPerfil = DetallesPedido::pendientesPerfil("cocinero");
 
       $cantidadPendientes = count($pedidosPorPerfil);
 
@@ -188,9 +193,12 @@ class DetallesPedidoController extends DetallesPedido
                 $nombre = $data->nombre;
                 $usuario = UsuarioController::obtenerUsuario($nombre);
   
-                DetallesPedido::levantarCocinero($usuario->empleadoId);
-    
-                LogController::CargarUno($request, "Cocinero levanta pedidos");
+              foreach($pedidosPorPerfil as $pedido){
+                $pedido->empleadoId = $usuario->empleadoId;
+                DetallesPedido::levantarPedido($pedido);
+              }
+
+              LogController::CargarUno($request, "Cocinero levanta pedidos");
 
               $payload = json_encode(array("mensaje" => "Se han levantado " .$cantidadPendientes. " pedidos."));
   
@@ -267,19 +275,30 @@ class DetallesPedidoController extends DetallesPedido
 
     public function ListoParaServirCervecero($request, $response, $args){
    
-      $payload = json_encode(array("mensaje" => "No se han encontrado pedidos listos para servir."));
+      $header = $request->getHeaderLine('Authorization');
+      if(isset(explode("Bearer", $header)[1])){
+            
+        $token = trim(explode("Bearer", $header)[1]);
 
-      $pedidosPorPerfil = DetallesPedido::obtenerListasParaServirPerfil("cervecero");
+        $data = AutentificadorJWT::ObtenerData($token);            
+      
+        $nombre = $data->nombre;
+        $usuario = UsuarioController::obtenerUsuario($nombre);
 
-      if($pedidosPorPerfil){
+        $payload = json_encode(array("mensaje" => "No se han encontrado pedidos listos para servir del empleado: " . $usuario->nombre));
+
+        $pedidosPorPerfil = DetallesPedido::obtenerListasParaServirUsuario($usuario);
+
+        if($pedidosPorPerfil){
         $cantidadPendientes = count($pedidosPorPerfil);
-  
-        if($cantidadPendientes > 0){       
-          DetallesPedido::setearListasParaServirPerfil("cervecero");    
-          $payload = json_encode(array("mensaje" => "Hay " .$cantidadPendientes. " listos para servir (Entregado al mozo)."));              
+
+          if($cantidadPendientes > 0){       
+            DetallesPedido::setearListasParaServirUsuario($usuario);    
+            $payload = json_encode(array("mensaje" => "(Cervecero) Hay " .$cantidadPendientes. " listos para servir del empleado: " . $usuario->nombre . " (Entregado al mozo)."));          
+          }
         }
+        LogController::CargarUno($request, "Cervecero (id: ".$usuario->empleadoId.") revisa pedidos listos para servir");
       }
-      LogController::CargarUno($request, "Cervecero revisa pedidos listos para servir");
 
       $response->getBody()->write($payload);
       return $response
@@ -288,46 +307,63 @@ class DetallesPedidoController extends DetallesPedido
 
     public function ListoParaServirBartender($request, $response, $args){
    
-      $payload = json_encode(array("mensaje" => "No se han encontrado pedidos listos para servir."));
-
-      $pedidosPorPerfil = DetallesPedido::obtenerListasParaServirPerfil("bartender");
-
-      if($pedidosPorPerfil){
-
-      $cantidadPendientes = count($pedidosPorPerfil);
-
-      if($cantidadPendientes > 0){       
-        DetallesPedido::setearListasParaServirPerfil("bartender");    
-        $payload = json_encode(array("mensaje" => "Hay " .$cantidadPendientes. " listos para servir (Entregado al mozo).")); 
+      $header = $request->getHeaderLine('Authorization');
+      if(isset(explode("Bearer", $header)[1])){
             
-      }
-    }
+        $token = trim(explode("Bearer", $header)[1]);
 
-    LogController::CargarUno($request, "Bartender revisa pedidos listos para servir");
+        $data = AutentificadorJWT::ObtenerData($token);            
+      
+        $nombre = $data->nombre;
+        $usuario = UsuarioController::obtenerUsuario($nombre);
+
+        $payload = json_encode(array("mensaje" => "No se han encontrado pedidos listos para servir del empleado: " . $usuario->nombre));
+
+        $pedidosPorPerfil = DetallesPedido::obtenerListasParaServirUsuario($usuario);
+
+        if($pedidosPorPerfil){
+        $cantidadPendientes = count($pedidosPorPerfil);
+
+          if($cantidadPendientes > 0){       
+            DetallesPedido::setearListasParaServirUsuario($usuario);    
+            $payload = json_encode(array("mensaje" => "(Bartender) Hay " .$cantidadPendientes. " listos para servir del empleado: " . $usuario->nombre . " (Entregado al mozo)."));          
+          }
+        }
+        LogController::CargarUno($request, "Bartender (id: ".$usuario->empleadoId.") revisa pedidos listos para servir");
+      }
 
       $response->getBody()->write($payload);
       return $response
         ->withHeader('Content-Type', 'application/json');
-    }
+  }
+  
 
     public function ListoParaServirCocinero($request, $response, $args){
    
-      $payload = json_encode(array("mensaje" => "No se han encontrado pedidos listos para servir."));
-
-      $pedidosPorPerfil = DetallesPedido::obtenerListasParaServirPerfil("cocinero");
-
-      if($pedidosPorPerfil){
-
-      $cantidadPendientes = count($pedidosPorPerfil);
-
-      if($cantidadPendientes > 0){       
-        DetallesPedido::setearListasParaServirPerfil("cocinero");    
-        $payload = json_encode(array("mensaje" => "Hay " .$cantidadPendientes. " listos para servir (Entregado al mozo).")); 
+      $header = $request->getHeaderLine('Authorization');
+      if(isset(explode("Bearer", $header)[1])){
             
-      }
-    }
+        $token = trim(explode("Bearer", $header)[1]);
 
-    LogController::CargarUno($request, "Cocinero revisa pedidos listos para servir");
+        $data = AutentificadorJWT::ObtenerData($token);            
+      
+        $nombre = $data->nombre;
+        $usuario = UsuarioController::obtenerUsuario($nombre);
+
+        $payload = json_encode(array("mensaje" => "No se han encontrado pedidos listos para servir del empleado: " . $usuario->nombre));
+
+        $pedidosPorPerfil = DetallesPedido::obtenerListasParaServirUsuario($usuario);
+
+        if($pedidosPorPerfil){
+        $cantidadPendientes = count($pedidosPorPerfil);
+
+          if($cantidadPendientes > 0){       
+            DetallesPedido::setearListasParaServirUsuario($usuario);    
+            $payload = json_encode(array("mensaje" => "(Cocinero) Hay " .$cantidadPendientes. " listos para servir del empleado: " . $usuario->nombre . " (Entregado al mozo)."));          
+          }
+        }
+        LogController::CargarUno($request, "Cocinero (id: ".$usuario->empleadoId.") revisa pedidos listos para servir");
+      }
 
       $response->getBody()->write($payload);
       return $response
@@ -336,5 +372,46 @@ class DetallesPedidoController extends DetallesPedido
 
     public static function obtenerDetallesPorCodigoDePedido($codigo){
       return DetallesPedido::obtenerProductosDeUnPedido($codigo);
+    }
+
+    public function mostrarDetallesDePedidosPendientes($request, $response, $args){
+
+      $payload = json_encode(array("Productos pendientes" => "No se han encontrado pedidos pendientes."));
+      $pendientes = DetallesPedido::mostrarPedidosPendientes();
+
+      if(count($pendientes) > 0){
+        $payload = json_encode(array("Pendientes" => $pendientes));
+
+      }
+      $response->getBody()->write($payload);
+      return $response
+        ->withHeader('Content-Type', 'application/json');
+    }
+
+    public function mostrarDetallesDePedidosEnPreparacion($request, $response, $args){
+
+      $payload = json_encode(array("Productos en preparacion" => "No se han encontrado pedidos en preparacion."));
+      $pedidosEnPreparacion =  DetallesPedido::mostrarPedidosEnPreparacion();
+
+      if(count($pedidosEnPreparacion) > 0){
+
+        $tiempoActual =  new DateTime();   
+        $tiempoActual = $tiempoActual->getTimestamp();
+
+        foreach($pedidosEnPreparacion as $pedidoEnPreparacion){
+
+          if($pedidoEnPreparacion->tiempoPreparacion < $tiempoActual){
+            $tiempoDeEspera = "Terminado";
+          }else{
+            $tiempoDeEsperaRestante = DateTime::createFromFormat('U', $pedidoEnPreparacion->tiempoPreparacion - $tiempoActual);
+            $tiempoDeEspera =  $tiempoDeEsperaRestante->format("i:s");      
+          }  
+          $pedidoEnPreparacion->tiempoPreparacion = $tiempoDeEspera;
+        }
+        $payload = json_encode(array("En preparacion" => $pedidosEnPreparacion));        
+      }
+      $response->getBody()->write($payload);
+      return $response
+        ->withHeader('Content-Type', 'application/json');
     }
 }

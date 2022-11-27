@@ -101,7 +101,7 @@ class PedidoController extends Pedido implements IApiUsable
               mkdir("./FotosPedidos");
             }
   
-            $ruta = "./FotosPedidos/" . $nombreCliente . "-" . $pedido->codigoAlfanumerico . $extension;
+            $ruta = "./FotosPedidos/cliente-" . $nombreCliente . "-codigoAlfanumericoPedido-" . $pedido->codigoAlfanumerico . $extension;
       
             move_uploaded_file($tempFile, $ruta);
   
@@ -253,33 +253,45 @@ class PedidoController extends Pedido implements IApiUsable
       $pedidos = Pedido::obtenerTodos();
       $listosParaServir = 0;
 
-    LogController::CargarUno($request, "Mozo verifica si hay pedidos listos para servir");
+      $header = $request->getHeaderLine('Authorization');
+      if(isset(explode("Bearer", $header)[1])){
+            
+        $token = trim(explode("Bearer", $header)[1]);
 
-      if($pedidos){
+        $data = AutentificadorJWT::ObtenerData($token);            
+      
+        $nombre = $data->nombre;
+        $usuario = UsuarioController::obtenerUsuario($nombre);
 
-        $tiempoActual =  new DateTime();   
-        $tiempoActual = $tiempoActual->getTimestamp();
-        foreach($pedidos as $pedido){ 
-          if(strcasecmp($pedido->estado, "listo para servir") == 0){            
-            if(isset($pedido->tiempoPreparacion)){
-              if($pedido->tiempoPreparacion < $tiempoActual){   
-                $pedido->estado = "Entregado";  
-                Pedido::modificarPedido($pedido);
-                MesaController::modificarEstadoDeMesa("con cliente comiendo", $pedido->mesaId);
-                $listosParaServir++;
-              }            
+        LogController::CargarUno($request, "Mozo (id: ".$usuario->empleadoId.") verifica si hay pedidos listos para servir");
+  
+        if($pedidos){
+  
+          $tiempoActual =  new DateTime();   
+          $tiempoActual = $tiempoActual->getTimestamp();
+          foreach($pedidos as $pedido){ 
+            if(strcasecmp($pedido->estado, "listo para servir") == 0 &&
+              $pedido->mozoId == $usuario->empleadoId){                            
+              if(isset($pedido->tiempoPreparacion)){
+                if($pedido->tiempoPreparacion < $tiempoActual){   
+                  $pedido->estado = "Entregado";  
+                  Pedido::modificarPedido($pedido);
+                  MesaController::modificarEstadoDeMesa("con cliente comiendo", $pedido->mesaId);
+                  $listosParaServir++;
+                }            
+              }
             }
           }
         }
+  
+        if($listosParaServir > 0){
+          $mensaje = "Se entregaron ".$listosParaServir." pedidos listos para servir por el empleado: " . $usuario->nombre;
+        }else{
+          $mensaje  = "No hay pedidos listos para servir para el empleado: " . $usuario->nombre;
+        }
+  
+        $payload = json_encode(array("mensaje" => $mensaje));  
       }
-
-      if($listosParaServir > 0){
-        $mensaje = "Se entregaron ".$listosParaServir." pedidos listos para servir.";
-      }else{
-        $mensaje  = "No hay pedidos listos para servir";
-      }
-
-      $payload = json_encode(array("mensaje" => $mensaje));  
 
       $response->getBody()->write($payload);
       return $response
@@ -334,7 +346,7 @@ class PedidoController extends Pedido implements IApiUsable
               $estado = "En preparacion";
               if($pedido->tiempoPreparacion < $tiempoActual){
                 $estado = "listo para servir";
-                $tiempoDeEspera = "0";
+                $tiempoDeEspera = "Terminado";
               }else{
                 $tiempoDeEsperaRestante = DateTime::createFromFormat('U', $pedido->tiempoPreparacion - $tiempoActual);
                 $tiempoDeEspera =  $tiempoDeEsperaRestante->format("i:s");              
@@ -414,7 +426,7 @@ class PedidoController extends Pedido implements IApiUsable
               $tiempoActual = $tiempoActual->getTimestamp();
 
               if($pedido->tiempoPreparacion < $tiempoActual){
-                $tiempoDeEspera = "0";
+                $tiempoDeEspera = "Terminado";
               }else{
                 $tiempoDeEsperaRestante = DateTime::createFromFormat('U', $pedido->tiempoPreparacion - $tiempoActual);
                 $tiempoDeEspera =  $tiempoDeEsperaRestante->format("i:s");              

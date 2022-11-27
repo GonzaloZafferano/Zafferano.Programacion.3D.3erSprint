@@ -16,7 +16,7 @@
 					"formdata": [
 						{
 							"key": "nombre",
-							"value": "andres",
+							"value": "Debora",
 							"type": "text"
 						},
 						{
@@ -31,7 +31,7 @@
 						},
 						{
 							"key": "perfil",
-							"value": "cocinero",
+							"value": "mozo",
 							"type": "text"
 						}
 					]
@@ -215,12 +215,12 @@
 					"formdata": [
 						{
 							"key": "nombre",
-							"value": "milanesas de pollo",
+							"value": "Arroz",
 							"type": "text"
 						},
 						{
 							"key": "precio",
-							"value": "123",
+							"value": "33",
 							"type": "text"
 						},
 						{
@@ -266,13 +266,13 @@
 					"urlencoded": [
 						{
 							"key": "precio",
-							"value": "250",
+							"value": "55",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:666/app/productos/40",
+					"raw": "http://localhost:666/app/productos/32",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -281,7 +281,7 @@
 					"path": [
 						"app",
 						"productos",
-						"40"
+						"32"
 					]
 				}
 			},
@@ -307,7 +307,7 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "http://localhost:666/app/productos/40",
+					"raw": "http://localhost:666/app/productos/32",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -316,7 +316,7 @@
 					"path": [
 						"app",
 						"productos",
-						"40"
+						"32"
 					]
 				}
 			},
@@ -420,7 +420,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:666/app/mesas/44",
+					"raw": "http://localhost:666/app/mesas/22",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -429,7 +429,7 @@
 					"path": [
 						"app",
 						"mesas",
-						"44"
+						"22"
 					]
 				}
 			},
@@ -455,7 +455,7 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "http://localhost:666/app/mesas/211",
+					"raw": "http://localhost:666/app/mesas/22",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -464,7 +464,7 @@
 					"path": [
 						"app",
 						"mesas",
-						"211"
+						"22"
 					]
 				}
 			},
@@ -521,7 +521,7 @@
 					"urlencoded": [
 						{
 							"key": "estado",
-							"value": "999999999",
+							"value": "",
 							"type": "text"
 						}
 					]
@@ -643,7 +643,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{mozo}}",
+							"value": "{{mozo2}}",
 							"type": "string"
 						}
 					]
@@ -655,29 +655,29 @@
 					"formdata": [
 						{
 							"key": "nombreCliente",
-							"value": "Andres123",
+							"value": "Mario",
 							"type": "text"
 						},
 						{
 							"key": "mesaId",
-							"value": "17",
+							"value": "15",
 							"type": "text"
 						},
 						{
 							"key": "productos",
 							"value": "[{\"producto\":\"pizza\", \"cantidad\":\"1\"},{\"producto\":\"vino\", \"cantidad\":\"2\"},{\"producto\":\"cerveza\", \"cantidad\":\"3\"}]",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						},
 						{
 							"key": "fotoUrl",
 							"type": "file",
-							"src": []
+							"src": "/C:/Users/ACER/Downloads/41803.jpg"
 						},
 						{
 							"key": "productos",
 							"value": "[{\"producto\":\"papas\", \"cantidad\":\"2\"},{\"producto\":\"cerveza\", \"cantidad\":\"2\"}]",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
@@ -718,12 +718,12 @@
 						{
 							"key": "fotoUrl",
 							"type": "file",
-							"src": "/C:/Users/ACER/Downloads/fondo-con-los-árboles-verdes-en-parque-32269425.jpg"
+							"src": "/C:/Users/ACER/Downloads/descarga.jpg"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:666/app/pedidos/foto/9d2d8",
+					"raw": "http://localhost:666/app/pedidos/foto/25d66",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -733,7 +733,7 @@
 						"app",
 						"pedidos",
 						"foto",
-						"9d2d8"
+						"25d66"
 					]
 				}
 			},
@@ -833,6 +833,37 @@
 			"response": []
 		},
 		{
+			"name": "4.1-VerTodosLosPRODUCTOSPendientes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/detallesPedidos/pendientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"detallesPedidos",
+						"pendientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "5-LevantarCervecero",
 			"request": {
 				"auth": {
@@ -902,7 +933,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{cocinero}}",
+							"value": "{{cocinero2}}",
 							"type": "string"
 						}
 					]
@@ -926,12 +957,43 @@
 			"response": []
 		},
 		{
+			"name": "5.1-VerTodosLosPRODUCTOSEnPreparacion",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Socios}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/app/detallesPedidos/enPreparacion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"app",
+						"detallesPedidos",
+						"enPreparacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "5.0-ClienteVerTiempoPedido",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:666/app/pedidos/verTiempoPedido?codigoMesa=4093f&codigoPedido=9d2d8",
+					"raw": "http://localhost:666/app/pedidos/verTiempoPedido?codigoMesa=4093f&codigoPedido=60804",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -949,7 +1011,7 @@
 						},
 						{
 							"key": "codigoPedido",
-							"value": "9d2d8"
+							"value": "60804"
 						}
 					]
 				}
@@ -995,7 +1057,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{cocinero}}",
+							"value": "{{cocinero2}}",
 							"type": "string"
 						}
 					]
@@ -1088,7 +1150,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{mozo}}",
+							"value": "{{mozo2}}",
 							"type": "string"
 						}
 					]
@@ -1150,7 +1212,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{mozo}}",
+							"value": "{{mozo2}}",
 							"type": "string"
 						}
 					]
@@ -1190,7 +1252,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:666/app/mesas/cerrarMesa/17",
+					"raw": "http://localhost:666/app/mesas/cerrarMesa/18",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -1200,7 +1262,7 @@
 						"app",
 						"mesas",
 						"cerrarMesa",
-						"17"
+						"18"
 					]
 				}
 			},
@@ -1246,7 +1308,7 @@
 						},
 						{
 							"key": "comentarios",
-							"value": "No vuelvo mas!!!",
+							"value": "No vuelvo mas!!! Horrible",
 							"type": "text"
 						}
 					]
@@ -1457,7 +1519,7 @@
 						{
 							"key": "archivo",
 							"type": "file",
-							"src": "/C:/Users/ACER/Downloads/productos (2).csv"
+							"src": "/C:/Users/ACER/Downloads/productos.csv"
 						}
 					]
 				},

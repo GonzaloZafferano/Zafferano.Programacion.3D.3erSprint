@@ -124,86 +124,53 @@ class DetallesPedido
 
         return $consulta->fetchObject('DetallesPedido');
     }
-
-    public static function levantarCervecero($empleadoId){
-        try{
-            if(isset($empleadoId)){
-     
-                $objAccesoDato = AccesoDatos::obtenerInstancia();
-                $consulta = $objAccesoDato->prepararConsulta("UPDATE detallespedidos
-                 SET estado = 'en preparacion', empleadoId = :empleadoId, tiempoPreparacion = :tiempoPreparacion WHERE perfil = 'cervecero' 
-                 and empleadoId is null");
-              
-                $tiempoActual =  new DateTime();       
-                $tiempoActual = $tiempoActual->getTimestamp();
-                $tiempoDePreparacion = $tiempoActual + random_int(30, 70);
-
-                $consulta->bindValue(':empleadoId', $empleadoId, PDO::PARAM_INT);
-                $consulta->bindValue(':tiempoPreparacion', $tiempoDePreparacion, PDO::PARAM_INT);
-
-                $consulta->execute();
     
-                return true;
-            }
+    public static function levantarPedido($detallePedido){
+        try{        
+     
+            $objAccesoDato = AccesoDatos::obtenerInstancia();
+            $consulta = $objAccesoDato->prepararConsulta("UPDATE detallespedidos
+                SET estado = 'en preparacion', empleadoId = :empleadoId, tiempoPreparacion = :tiempoPreparacion
+                WHERE detallePedidoId = :detallePedidoId");
+            
+            $tiempoActual =  new DateTime();       
+            $tiempoActual = $tiempoActual->getTimestamp();
+            $tiempoDePreparacion = $tiempoActual + random_int(30, 70);
+
+            $consulta->bindValue(':empleadoId', $detallePedido->empleadoId, PDO::PARAM_INT);
+            $consulta->bindValue(':tiempoPreparacion', $tiempoDePreparacion, PDO::PARAM_INT);
+            $consulta->bindValue(':detallePedidoId', $detallePedido->detallePedidoId, PDO::PARAM_INT);
+
+            $consulta->execute();
+            return true;            
         }catch(Exception $ex){
             echo "Excepcion: " . $ex->getMessage();
         }
         return false;
     }
 
-    public static function levantarBartender($empleadoId){
-        try{
-            if(isset($empleadoId)){
-     
-                $objAccesoDato = AccesoDatos::obtenerInstancia();
-                $consulta = $objAccesoDato->prepararConsulta("UPDATE detallespedidos
-                 SET estado = 'en preparacion', empleadoId = :empleadoId, tiempoPreparacion = :tiempoPreparacion WHERE perfil = 'bartender' 
-                 and empleadoId is null");
-              
-                $tiempoActual =  new DateTime();       
-                $tiempoActual = $tiempoActual->getTimestamp();
-                $tiempoDePreparacion = $tiempoActual + random_int(30, 70);
+    public static function mostrarPedidosPendientes(){
+        $objAccesoDato = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDato->prepararConsulta("SELECT detallePedidoId, 
+        codigoAlfanumerico, estado, productoId, cantidad, perfil
+        FROM detallespedidos WHERE 
+        estado = 'pendiente'");            
 
-                $consulta->bindValue(':empleadoId', $empleadoId, PDO::PARAM_INT);
-                $consulta->bindValue(':tiempoPreparacion', $tiempoDePreparacion, PDO::PARAM_INT);
+        $consulta->execute();
 
-                $consulta->execute();
-    
-                return true;
-            }
-        }catch(Exception $ex){
-            echo "Excepcion: " . $ex->getMessage();
-        }
-        return false;
+        return $consulta->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public static function levantarCocinero($empleadoId){
-        try{
-            if(isset($empleadoId)){
-     
-                $objAccesoDato = AccesoDatos::obtenerInstancia();
-                $consulta = $objAccesoDato->prepararConsulta("UPDATE detallespedidos
-                 SET estado = 'en preparacion', empleadoId = :empleadoId, tiempoPreparacion = :tiempoPreparacion WHERE perfil = 'cocinero' 
-                 and empleadoId is null");
-              
-                $tiempoActual =  new DateTime();       
-                $tiempoActual = $tiempoActual->getTimestamp();
-                $tiempoDePreparacion = $tiempoActual + random_int(30, 70);
+    public static function mostrarPedidosEnPreparacion(){
+        $objAccesoDato = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDato->prepararConsulta("SELECT * 
+        FROM detallespedidos WHERE 
+        estado = 'en preparacion'");              
 
-                $consulta->bindValue(':empleadoId', $empleadoId, PDO::PARAM_INT);
-                $consulta->bindValue(':tiempoPreparacion', $tiempoDePreparacion, PDO::PARAM_INT);
+        $consulta->execute();
 
-                $consulta->execute();
-    
-                return true;
-            }
-        }catch(Exception $ex){
-            echo "Excepcion: " . $ex->getMessage();
-        }
-        return false;
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'DetallesPedido');
     }
-
-
 
     public static function pendientesPerfil($perfil){
        
@@ -211,7 +178,7 @@ class DetallesPedido
     
             $objAccesoDato = AccesoDatos::obtenerInstancia();
             $consulta = $objAccesoDato->prepararConsulta("SELECT * FROM detallespedidos WHERE perfil = :perfil and
-            estado = 'pendiente'");              
+            estado = 'pendiente' and empleadoId is null");              
 
             $consulta->bindValue(':perfil', $perfil, PDO::PARAM_STR);
             $consulta->execute();
@@ -220,18 +187,22 @@ class DetallesPedido
         }   
     }
 
-    public static function obtenerListasParaServirPerfil($perfil){
+    public static function obtenerListasParaServirUsuario($usuario){
        
-        if(isset($perfil)){
+        if(isset($usuario)){
     
             $tiempoActual =  new DateTime();       
             $tiempoActual = $tiempoActual->getTimestamp();
 
             $objAccesoDato = AccesoDatos::obtenerInstancia();
-            $consulta = $objAccesoDato->prepararConsulta("SELECT * FROM detallespedidos WHERE perfil = :perfil and
-            tiempoPreparacion < :tiempoPreparacion and estado != 'listo para servir' and estado != 'terminado'");              
+            $consulta = $objAccesoDato->prepararConsulta("SELECT * 
+            FROM detallespedidos WHERE perfil = :perfil and
+            tiempoPreparacion < :tiempoPreparacion and estado != 'listo para servir' 
+            and estado != 'terminado'
+            and empleadoId = :empleadoId");              
 
-            $consulta->bindValue(':perfil', $perfil, PDO::PARAM_STR);
+            $consulta->bindValue(':perfil', $usuario->perfil, PDO::PARAM_STR);
+            $consulta->bindValue(':empleadoId', $usuario->empleadoId, PDO::PARAM_STR);
             $consulta->bindValue(':tiempoPreparacion', $tiempoActual, PDO::PARAM_INT);
             $consulta->execute();
 
@@ -239,19 +210,21 @@ class DetallesPedido
         }   
     }
 
-    public static function setearListasParaServirPerfil($perfil){
+    public static function setearListasParaServirUsuario($usuario){
        
-        if(isset($perfil)){
+        if(isset($usuario)){
     
             $tiempoActual =  new DateTime();       
             $tiempoActual = $tiempoActual->getTimestamp();
 
             $objAccesoDato = AccesoDatos::obtenerInstancia();
-            $consulta = $objAccesoDato->prepararConsulta("UPDATE detallespedidos set estado = 'listo para servir'
-             WHERE perfil = :perfil and
-            tiempoPreparacion < :tiempoPreparacion and estado != 'listo para servir'");              
+            $consulta = $objAccesoDato->prepararConsulta("UPDATE detallespedidos 
+            set estado = 'listo para servir'
+             WHERE empleadoId = :empleadoId and
+            tiempoPreparacion < :tiempoPreparacion and estado != 'listo para servir'
+            and estado != 'terminado'");              
 
-            $consulta->bindValue(':perfil', $perfil, PDO::PARAM_STR);
+            $consulta->bindValue(':empleadoId', $usuario->empleadoId, PDO::PARAM_INT);
             $consulta->bindValue(':tiempoPreparacion', $tiempoActual, PDO::PARAM_INT);
             $consulta->execute();
 
