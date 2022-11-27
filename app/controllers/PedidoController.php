@@ -398,8 +398,9 @@ class PedidoController extends Pedido implements IApiUsable
     }
 
     public static function obtenerPedidoParaCobrarPorMesaId($mesaId)
-    {
-      return Pedido::obtenerPedidoParaCobrar($mesaId);
+    { 
+      $pedido = Pedido::obtenerPedidoParaCobrar($mesaId);
+      return $pedido;
     }
 
     public static function modificarEstadoPedido($pedido)

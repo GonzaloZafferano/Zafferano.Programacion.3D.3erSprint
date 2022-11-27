@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2022 a las 17:35:29
+-- Tiempo de generación: 27-11-2022 a las 19:09:35
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -61,7 +61,9 @@ INSERT INTO `comentarios` (`comentarioId`, `mesaId`, `puntuacionMesa`, `mozoId`,
 (22, 17, 2, 4, 2, 7, 1, 2, 'No vuelvo mas!!!'),
 (23, 17, 2, 4, 2, 7, 1, 2, 'No vuelvo mas!!!'),
 (24, 17, 2, 4, 2, 7, 1, 2, 'No vuelvo mas!!!'),
-(25, 17, 2, 4, 2, 7, 1, 2, 'No vuelvo mas!!! Horrible');
+(25, 17, 2, 4, 2, 7, 1, 2, 'No vuelvo mas!!! Horrible'),
+(26, 17, 2, 4, 2, 7, 1, 2, 'No vuelvo mas!!! Horrible'),
+(27, 17, 2, 4, 2, 7, 1, 2, 'No vuelvo mas!!! Horrible...');
 
 -- --------------------------------------------------------
 
@@ -265,7 +267,58 @@ INSERT INTO `detallespedidos` (`detallePedidoId`, `estado`, `codigoAlfanumerico`
 (360, 'listo para servir', '726b7', 5, 10, 1669515314, 3, 'cervecero'),
 (361, 'listo para servir', '1a6de', 15, 12, 1669515325, 1, 'cocinero'),
 (362, 'listo para servir', '1a6de', 6, 16, 1669515312, 2, 'bartender'),
-(363, 'listo para servir', '1a6de', 5, 10, 1669515327, 3, 'cervecero');
+(363, 'listo para servir', '1a6de', 5, 10, 1669515327, 3, 'cervecero'),
+(364, 'listo para servir', '614ea', 15, 12, 1669568580, 1, 'cocinero'),
+(365, 'listo para servir', '614ea', 6, 16, 1669568568, 2, 'bartender'),
+(366, 'listo para servir', '614ea', 5, 10, 1669568563, 3, 'cervecero'),
+(367, 'listo para servir', '79336', 15, 12, 1669568554, 1, 'cocinero'),
+(368, 'listo para servir', '79336', 6, 16, 1669568572, 2, 'bartender'),
+(369, 'listo para servir', '79336', 5, 10, 1669568551, 3, 'cervecero'),
+(370, 'listo para servir', '87fdf', 7, 15, 1669568791, 2, 'cocinero'),
+(371, 'listo para servir', '87fdf', 7, 33, 1669568765, 2, 'cocinero'),
+(372, 'listo para servir', '87fdf', 16, 10, 1669568749, 2, 'cervecero'),
+(373, 'listo para servir', 'a7f1e', 7, 15, 1669569381, 2, 'cocinero'),
+(374, 'listo para servir', 'a7f1e', 7, 33, 1669569380, 2, 'cocinero'),
+(375, 'listo para servir', 'a7f1e', 16, 10, 1669569386, 2, 'cervecero'),
+(376, 'listo para servir', '5c11f', 7, 15, 1669569369, 2, 'cocinero'),
+(377, 'listo para servir', '5c11f', 7, 33, 1669569360, 2, 'cocinero'),
+(378, 'listo para servir', '5c11f', 16, 10, 1669569376, 2, 'cervecero'),
+(379, 'listo para servir', '1aac5', 7, 15, 1669570079, 2, 'cocinero'),
+(380, 'listo para servir', '1aac5', 7, 33, 1669570069, 2, 'cocinero'),
+(381, 'listo para servir', '1aac5', 16, 10, 1669570046, 2, 'cervecero'),
+(382, 'listo para servir', 'c2b89', 7, 15, 1669570072, 2, 'cocinero'),
+(383, 'listo para servir', 'c2b89', 7, 33, 1669570050, 2, 'cocinero'),
+(384, 'listo para servir', 'c2b89', 16, 10, 1669570051, 2, 'cervecero'),
+(385, 'listo para servir', '0e353', 7, 15, 1669570548, 2, 'cocinero'),
+(386, 'listo para servir', '0e353', 7, 33, 1669570546, 2, 'cocinero'),
+(387, 'listo para servir', '0e353', 16, 10, 1669570542, 2, 'cervecero'),
+(388, 'listo para servir', '35111', 7, 15, 1669570582, 2, 'cocinero'),
+(389, 'listo para servir', '35111', 7, 33, 1669570559, 2, 'cocinero'),
+(390, 'listo para servir', '35111', 16, 10, 1669570551, 2, 'cervecero'),
+(391, 'listo para servir', '89c07', 7, 15, 1669570566, 2, 'cocinero'),
+(392, 'listo para servir', '89c07', 7, 33, 1669570560, 2, 'cocinero'),
+(393, 'listo para servir', '89c07', 16, 10, 1669570542, 2, 'cervecero'),
+(394, 'listo para servir', 'fe2a4', 7, 15, 1669570572, 2, 'cocinero'),
+(395, 'listo para servir', 'fe2a4', 7, 33, 1669570571, 2, 'cocinero'),
+(396, 'listo para servir', 'fe2a4', 16, 10, 1669570569, 2, 'cervecero'),
+(397, 'listo para servir', '17df2', 7, 15, 1669570559, 2, 'cocinero'),
+(398, 'listo para servir', '17df2', 7, 33, 1669570562, 2, 'cocinero'),
+(399, 'listo para servir', '17df2', 16, 10, 1669570565, 2, 'cervecero'),
+(400, 'listo para servir', 'ce20c', 7, 15, 1669572092, 2, 'cocinero'),
+(401, 'listo para servir', 'ce20c', 7, 33, 1669572109, 2, 'cocinero'),
+(402, 'listo para servir', 'ce20c', 16, 10, 1669572105, 2, 'cervecero'),
+(403, 'listo para servir', '4fb43', 7, 15, 1669572093, 2, 'cocinero'),
+(404, 'listo para servir', '4fb43', 7, 33, 1669572114, 2, 'cocinero'),
+(405, 'listo para servir', '4fb43', 16, 10, 1669572099, 2, 'cervecero'),
+(406, 'listo para servir', '98657', 7, 15, 1669572102, 2, 'cocinero'),
+(407, 'listo para servir', '98657', 7, 33, 1669572094, 2, 'cocinero'),
+(408, 'listo para servir', '98657', 16, 10, 1669572082, 2, 'cervecero'),
+(409, 'listo para servir', '8168f', 7, 15, 1669572103, 2, 'cocinero'),
+(410, 'listo para servir', '8168f', 7, 33, 1669572100, 2, 'cocinero'),
+(411, 'listo para servir', '8168f', 16, 10, 1669572069, 2, 'cervecero'),
+(412, 'listo para servir', '244be', 7, 15, 1669572101, 2, 'cocinero'),
+(413, 'listo para servir', '244be', 7, 33, 1669572103, 2, 'cocinero'),
+(414, 'listo para servir', '244be', 16, 10, 1669572104, 2, 'cervecero');
 
 -- --------------------------------------------------------
 
@@ -463,7 +516,163 @@ INSERT INTO `logs` (`idLog`, `idUsuario`, `fecha`, `accion`) VALUES
 (482, 1, '2026-11-22 14:53:13', 'Socio pide lista de logs'),
 (483, 1, '2026-11-22 14:54:19', 'Socio pide lista de logs'),
 (484, 1, '2027-11-22 14:13:55', 'Socio pide mesas y estados'),
-(485, 1, '2027-11-22 14:15:34', 'Socio pide lista de logs');
+(485, 1, '2027-11-22 14:15:34', 'Socio pide lista de logs'),
+(486, 18, '2027-11-22 05:00:21', 'Mozo Carga el pedido'),
+(487, 4, '2027-11-22 05:00:42', 'Mozo Carga el pedido'),
+(488, 7, '2027-11-22 05:00:50', 'Cocinero revisa pedidos pendientes'),
+(489, 6, '2027-11-22 05:01:05', 'Bartender revisa pedidos pendientes'),
+(490, 5, '2027-11-22 05:01:24', 'Cervecero revisa pedidos pendientes'),
+(491, 5, '2027-11-22 05:01:44', 'Cervecero levanta pedidos'),
+(492, 6, '2027-11-22 05:01:47', 'Bartender levanta pedidos'),
+(493, 15, '2027-11-22 05:01:50', 'Cocinero levanta pedidos'),
+(494, 4, '2027-11-22 05:03:21', 'Mozo Carga el pedido'),
+(495, 7, '2027-11-22 05:04:28', 'Cocinero revisa pedidos pendientes'),
+(496, 6, '2027-11-22 05:04:38', 'Bartender revisa pedidos pendientes'),
+(497, 5, '2027-11-22 05:04:42', 'Cervecero revisa pedidos pendientes'),
+(498, 16, '2027-11-22 05:05:11', 'Cervecero levanta pedidos'),
+(499, 7, '2027-11-22 05:05:25', 'Cocinero levanta pedidos'),
+(500, 1, '2027-11-22 05:05:53', 'Socio pide tiempo y estado de pedidos.'),
+(501, 1, '2027-11-22 05:06:00', 'Socio pide tiempo y estado de pedidos.'),
+(502, 1, '2027-11-22 05:06:02', 'Socio pide tiempo y estado de pedidos.'),
+(503, 1, '2027-11-22 05:06:10', 'Socio pide tiempo y estado de pedidos.'),
+(504, 1, '2027-11-22 05:06:22', 'Socio pide tiempo y estado de pedidos.'),
+(505, 1, '2027-11-22 05:06:24', 'Socio pide tiempo y estado de pedidos.'),
+(506, 1, '2027-11-22 05:06:37', 'Socio pide tiempo y estado de pedidos.'),
+(507, 15, '2027-11-22 05:06:41', 'Cocinero (id: 15) revisa pedidos listos para servir'),
+(508, 15, '2027-11-22 05:06:47', 'Cocinero (id: 15) revisa pedidos listos para servir'),
+(509, 6, '2027-11-22 05:06:51', 'Bartender (id: 6) revisa pedidos listos para servir'),
+(510, 6, '2027-11-22 05:06:54', 'Bartender (id: 6) revisa pedidos listos para servir'),
+(511, 6, '2027-11-22 05:06:56', 'Bartender (id: 6) revisa pedidos listos para servir'),
+(512, 5, '2027-11-22 05:07:00', 'Cervecero (id: 5) revisa pedidos listos para servir'),
+(513, 5, '2027-11-22 05:07:01', 'Cervecero (id: 5) revisa pedidos listos para servir'),
+(514, 5, '2027-11-22 05:07:03', 'Cervecero (id: 5) revisa pedidos listos para servir'),
+(515, 18, '2027-11-22 05:07:10', 'Mozo (id: 18) verifica si hay pedidos listos para servir'),
+(516, 18, '2027-11-22 05:07:15', 'Mozo (id: 18) verifica si hay pedidos listos para servir'),
+(517, 1, '2027-11-22 05:07:20', 'Socio pide mesas y estados'),
+(518, 15, '2027-11-22 05:07:30', 'Cocinero (id: 15) revisa pedidos listos para servir'),
+(519, 7, '2027-11-22 05:07:39', 'Cocinero (id: 7) revisa pedidos listos para servir'),
+(520, 7, '2027-11-22 05:07:41', 'Cocinero (id: 7) revisa pedidos listos para servir'),
+(521, 17, '2027-11-22 05:07:53', 'Bartender (id: 17) revisa pedidos listos para servir'),
+(522, 5, '2027-11-22 05:08:02', 'Cervecero (id: 5) revisa pedidos listos para servir'),
+(523, 16, '2027-11-22 05:08:09', 'Cervecero (id: 16) revisa pedidos listos para servir'),
+(524, 16, '2027-11-22 05:08:12', 'Cervecero (id: 16) revisa pedidos listos para servir'),
+(525, 18, '2027-11-22 05:08:16', 'Mozo (id: 18) verifica si hay pedidos listos para servir'),
+(526, 18, '2027-11-22 05:08:18', 'Mozo (id: 18) verifica si hay pedidos listos para servir'),
+(527, 4, '2027-11-22 05:08:23', 'Mozo (id: 4) verifica si hay pedidos listos para servir'),
+(528, 4, '2027-11-22 05:08:25', 'Mozo (id: 4) verifica si hay pedidos listos para servir'),
+(529, 1, '2027-11-22 05:08:32', 'Socio pide mesas y estados'),
+(530, 18, '2027-11-22 05:08:51', 'Mozo (id: 18) cobra mesa'),
+(531, 4, '2027-11-22 05:11:40', 'Mozo (id: 4) cobra mesa'),
+(532, 4, '2027-11-22 05:11:46', 'Mozo (id: 4) cobra mesa'),
+(533, 1, '2027-11-22 05:12:14', 'Socio cierra mesa'),
+(534, 1, '2027-11-22 05:12:18', 'Socio cierra mesa'),
+(535, 1, '2027-11-22 05:12:22', 'Socio cierra mesa'),
+(536, 1, '2027-11-22 05:12:25', 'Socio cierra mesa'),
+(537, 1, '2027-11-22 05:12:38', 'Socio pide todos los comentarios'),
+(538, 1, '2027-11-22 05:12:46', 'Socio pide mejores comentarios'),
+(539, 1, '2027-11-22 05:12:50', 'Socio pide mesa mas usada'),
+(540, 1, '2027-11-22 05:12:55', 'Socio pide lista de logs'),
+(541, 1, '2027-11-22 05:14:00', 'Socio actualiza BBDD con archivo csv.'),
+(542, 1, '2027-11-22 05:14:36', 'Socio actualiza BBDD con archivo csv.'),
+(543, 4, '2027-11-22 05:14:56', 'Mozo Carga el pedido'),
+(544, 18, '2027-11-22 05:15:11', 'Mozo Carga el pedido'),
+(545, 16, '2027-11-22 05:15:18', 'Cervecero levanta pedidos'),
+(546, 7, '2027-11-22 05:15:24', 'Cocinero levanta pedidos'),
+(547, 1, '2027-11-22 05:15:36', 'Socio pide tiempo y estado de pedidos.'),
+(548, 1, '2027-11-22 05:15:39', 'Socio pide tiempo y estado de pedidos.'),
+(549, 1, '2027-11-22 05:15:41', 'Socio pide tiempo y estado de pedidos.'),
+(550, 7, '2027-11-22 05:15:48', 'Cocinero (id: 7) revisa pedidos listos para servir'),
+(551, 17, '2027-11-22 05:15:52', 'Bartender (id: 17) revisa pedidos listos para servir'),
+(552, 16, '2027-11-22 05:15:54', 'Cervecero (id: 16) revisa pedidos listos para servir'),
+(553, 16, '2027-11-22 05:16:06', 'Cervecero (id: 16) revisa pedidos listos para servir'),
+(554, 16, '2027-11-22 05:16:07', 'Cervecero (id: 16) revisa pedidos listos para servir'),
+(555, 7, '2027-11-22 05:23:42', 'Cocinero (id: 7) revisa pedidos listos para servir'),
+(556, 17, '2027-11-22 05:23:47', 'Bartender (id: 17) revisa pedidos listos para servir'),
+(557, 16, '2027-11-22 05:23:51', 'Cervecero (id: 16) revisa pedidos listos para servir'),
+(558, 4, '2027-11-22 05:23:57', 'Mozo (id: 4) verifica si hay pedidos listos para servir'),
+(559, 4, '2027-11-22 05:24:00', 'Mozo (id: 4) verifica si hay pedidos listos para servir'),
+(560, 4, '2027-11-22 05:24:02', 'Mozo (id: 4) verifica si hay pedidos listos para servir'),
+(561, 18, '2027-11-22 05:24:15', 'Mozo (id: 18) verifica si hay pedidos listos para servir'),
+(562, 18, '2027-11-22 05:24:17', 'Mozo (id: 18) verifica si hay pedidos listos para servir'),
+(563, 18, '2027-11-22 05:24:20', 'Mozo (id: 18) verifica si hay pedidos listos para servir'),
+(564, 1, '2027-11-22 05:24:25', 'Socio pide mesas y estados'),
+(565, 4, '2027-11-22 05:25:06', 'Mozo (id: 4) cobra mesa'),
+(566, 18, '2027-11-22 05:25:22', 'Mozo (id: 18) cobra mesa'),
+(567, 1, '2027-11-22 05:25:30', 'Socio cierra mesa'),
+(568, 1, '2027-11-22 05:25:34', 'Socio cierra mesa'),
+(569, 18, '2027-11-22 05:26:30', 'Mozo Carga el pedido'),
+(570, 4, '2027-11-22 05:26:41', 'Mozo Carga el pedido'),
+(571, 16, '2027-11-22 05:26:47', 'Cervecero levanta pedidos'),
+(572, 7, '2027-11-22 05:26:52', 'Cocinero levanta pedidos'),
+(573, 1, '2027-11-22 05:27:09', 'Socio pide tiempo y estado de pedidos.'),
+(574, 7, '2027-11-22 05:30:53', 'Cocinero (id: 7) revisa pedidos listos para servir'),
+(575, 17, '2027-11-22 05:31:00', 'Bartender (id: 17) revisa pedidos listos para servir'),
+(576, 16, '2027-11-22 05:31:03', 'Cervecero (id: 16) revisa pedidos listos para servir'),
+(577, 18, '2027-11-22 05:31:09', 'Mozo (id: 18) verifica si hay pedidos listos para servir'),
+(578, 4, '2027-11-22 05:31:15', 'Mozo (id: 4) verifica si hay pedidos listos para servir'),
+(579, 18, '2027-11-22 05:31:22', 'Mozo (id: 18) cobra mesa'),
+(580, 4, '2027-11-22 05:31:38', 'Mozo (id: 4) cobra mesa'),
+(581, 4, '2027-11-22 05:34:01', 'Mozo Carga el pedido'),
+(582, 4, '2027-11-22 05:34:13', 'Mozo Carga el pedido'),
+(583, 18, '2027-11-22 05:34:36', 'Mozo Carga el pedido'),
+(584, 18, '2027-11-22 05:34:55', 'Mozo Carga el pedido'),
+(585, 4, '2027-11-22 05:35:04', 'Mozo Carga el pedido'),
+(586, 16, '2027-11-22 05:35:10', 'Cervecero levanta pedidos'),
+(587, 7, '2027-11-22 05:35:16', 'Cocinero levanta pedidos'),
+(588, 1, '2027-11-22 05:35:26', 'Socio pide tiempo y estado de pedidos.'),
+(589, 1, '2027-11-22 05:37:01', 'Socio pide tiempo y estado de pedidos.'),
+(590, 7, '2027-11-22 05:37:05', 'Cocinero (id: 7) revisa pedidos listos para servir'),
+(591, 17, '2027-11-22 05:37:08', 'Bartender (id: 17) revisa pedidos listos para servir'),
+(592, 16, '2027-11-22 05:37:11', 'Cervecero (id: 16) revisa pedidos listos para servir'),
+(593, 4, '2027-11-22 05:37:19', 'Mozo (id: 4) verifica si hay pedidos listos para servir'),
+(594, 18, '2027-11-22 05:37:31', 'Mozo (id: 18) verifica si hay pedidos listos para servir'),
+(595, 1, '2027-11-22 05:37:36', 'Socio pide mesas y estados'),
+(596, 18, '2027-11-22 05:53:22', 'Mozo (id: 18) cobra mesa'),
+(597, 18, '2027-11-22 05:53:45', 'Mozo (id: 18) cobra mesa'),
+(598, 1, '2027-11-22 05:53:57', 'Socio pide mesas y estados'),
+(599, 4, '2027-11-22 05:54:21', 'Mozo (id: 4) cobra mesa'),
+(600, 4, '2027-11-22 05:54:24', 'Mozo (id: 4) cobra mesa'),
+(601, 4, '2027-11-22 05:54:28', 'Mozo (id: 4) cobra mesa'),
+(602, 1, '2027-11-22 05:54:34', 'Socio cierra mesa'),
+(603, 1, '2027-11-22 05:54:37', 'Socio cierra mesa'),
+(604, 1, '2027-11-22 05:54:40', 'Socio cierra mesa'),
+(605, 1, '2027-11-22 05:54:43', 'Socio cierra mesa'),
+(606, 1, '2027-11-22 05:54:46', 'Socio cierra mesa'),
+(607, 1, '2027-11-22 05:54:49', 'Socio cierra mesa'),
+(608, 1, '2027-11-22 05:54:53', 'Socio cierra mesa'),
+(609, 1, '2027-11-22 05:55:00', 'Socio pide mesas y estados'),
+(610, 4, '2027-11-22 05:59:52', 'Mozo Carga el pedido'),
+(611, 4, '2027-11-22 05:59:57', 'Mozo Carga el pedido'),
+(612, 18, '2027-11-22 06:00:10', 'Mozo Carga el pedido'),
+(613, 18, '2027-11-22 06:00:14', 'Mozo Carga el pedido'),
+(614, 4, '2027-11-22 06:00:27', 'Mozo Carga el pedido'),
+(615, 16, '2027-11-22 06:00:38', 'Cervecero levanta pedidos'),
+(616, 7, '2027-11-22 06:00:44', 'Cocinero levanta pedidos'),
+(617, 1, '2027-11-22 06:00:48', 'Socio pide tiempo y estado de pedidos.'),
+(618, 1, '2027-11-22 06:01:07', 'Socio pide tiempo y estado de pedidos.'),
+(619, 1, '2027-11-22 06:02:08', 'Socio pide tiempo y estado de pedidos.'),
+(620, 7, '2027-11-22 06:02:28', 'Cocinero (id: 7) revisa pedidos listos para servir'),
+(621, 17, '2027-11-22 06:02:31', 'Bartender (id: 17) revisa pedidos listos para servir'),
+(622, 16, '2027-11-22 06:02:34', 'Cervecero (id: 16) revisa pedidos listos para servir'),
+(623, 16, '2027-11-22 06:02:35', 'Cervecero (id: 16) revisa pedidos listos para servir'),
+(624, 7, '2027-11-22 06:02:38', 'Cocinero (id: 7) revisa pedidos listos para servir'),
+(625, 18, '2027-11-22 06:02:46', 'Mozo (id: 18) verifica si hay pedidos listos para servir'),
+(626, 18, '2027-11-22 06:02:49', 'Mozo (id: 18) verifica si hay pedidos listos para servir'),
+(627, 4, '2027-11-22 06:02:57', 'Mozo (id: 4) verifica si hay pedidos listos para servir'),
+(628, 1, '2027-11-22 06:03:01', 'Socio pide mesas y estados'),
+(629, 18, '2027-11-22 06:03:22', 'Mozo (id: 18) cobra mesa'),
+(630, 18, '2027-11-22 06:03:31', 'Mozo (id: 18) cobra mesa'),
+(631, 4, '2027-11-22 06:04:04', 'Mozo (id: 4) cobra mesa'),
+(632, 4, '2027-11-22 06:04:15', 'Mozo (id: 4) cobra mesa'),
+(633, 4, '2027-11-22 06:04:18', 'Mozo (id: 4) cobra mesa'),
+(634, 1, '2027-11-22 06:06:44', 'Socio cierra mesa'),
+(635, 1, '2027-11-22 06:06:48', 'Socio cierra mesa'),
+(636, 1, '2027-11-22 06:06:51', 'Socio cierra mesa'),
+(637, 1, '2027-11-22 06:06:54', 'Socio cierra mesa'),
+(638, 1, '2027-11-22 06:06:58', 'Socio cierra mesa'),
+(639, 1, '2027-11-22 06:07:03', 'Socio cierra mesa'),
+(640, 1, '2027-11-22 06:07:08', 'Socio cierra mesa'),
+(641, 1, '2027-11-22 06:07:22', 'Socio pide mesas y estados');
 
 -- --------------------------------------------------------
 
@@ -488,7 +697,7 @@ INSERT INTO `mesas` (`mesaId`, `estado`, `activo`, `codigoMesa`) VALUES
 (16, 'Cerrada', 1, '82ea5'),
 (17, 'Cerrada', 1, '4093f'),
 (18, 'Cerrada', 1, '2a3e7'),
-(19, 'cerrada', 1, '770d4'),
+(19, 'Cerrada', 1, '770d4'),
 (20, 'Cerrada', 1, 'd831c'),
 (21, 'cerrada', 0, '2686d'),
 (22, 'con cliente pagando', 0, 'c8470');
@@ -577,7 +786,24 @@ INSERT INTO `pedidos` (`pedidoId`, `codigoAlfanumerico`, `nombreCliente`, `mesaI
 (160, 'd4904', 'Mario', 17, 'Terminado', './FotosPedidos/cliente-Mario-codigoAlfanumericoPedido-d4904.jpg', 1669515326, 4),
 (161, 'c3de1', 'Mario', 18, 'Terminado', './FotosPedidos/cliente-Mario-codigoAlfanumericoPedido-c3de1.jpg', 1669515335, 4),
 (162, '726b7', 'Mario', 14, 'Terminado', './FotosPedidos/cliente-Mario-codigoAlfanumericoPedido-726b7.jpg', 1669515349, 18),
-(163, '1a6de', 'Mario', 15, 'Terminado', './FotosPedidos/cliente-Mario-codigoAlfanumericoPedido-1a6de.jpg', 1669515327, 18);
+(163, '1a6de', 'Mario', 15, 'Terminado', './FotosPedidos/cliente-Mario-codigoAlfanumericoPedido-1a6de.jpg', 1669515327, 18),
+(164, '614ea', 'Mario', 15, 'Terminado', NULL, 1669568580, 18),
+(165, '79336', 'Mario', 16, 'Terminado', NULL, 1669568572, 4),
+(166, '87fdf', 'Mario', 17, 'Terminado', NULL, 1669568791, 4),
+(167, 'a7f1e', 'Mario', 17, 'Terminado', NULL, 1669569386, 4),
+(168, '5c11f', 'Mario', 18, 'Terminado', NULL, 1669569376, 18),
+(169, '1aac5', 'Mario', 18, 'Terminado', NULL, 1669570079, 18),
+(170, 'c2b89', 'Mario', 17, 'Terminado', NULL, 1669570072, 4),
+(171, '0e353', 'Mario', 14, 'Terminado', NULL, 1669570548, 4),
+(172, '35111', 'Mario', 15, 'Terminado', NULL, 1669570582, 4),
+(173, '89c07', 'Mario', 16, 'Terminado', NULL, 1669570566, 18),
+(174, 'fe2a4', 'Mario', 19, 'Terminado', NULL, 1669570572, 18),
+(175, '17df2', 'Mario', 20, 'Terminado', NULL, 1669570565, 4),
+(176, 'ce20c', 'Mario', 14, 'Terminado', NULL, 1669572109, 4),
+(177, '4fb43', 'Mario', 15, 'Terminado', NULL, 1669572114, 4),
+(178, '98657', 'Mario', 16, 'Terminado', NULL, 1669572102, 18),
+(179, '8168f', 'Mario', 17, 'Terminado', NULL, 1669572103, 18),
+(180, '244be', 'Mario', 18, 'Terminado', NULL, 1669572104, 4);
 
 -- --------------------------------------------------------
 
@@ -604,7 +830,7 @@ INSERT INTO `productos` (`productoId`, `nombre`, `precio`, `activo`, `perfil`) V
 (13, 'milanesa', 130, 1, 'cocinero'),
 (14, 'PAPAS con cheddar', 250, 1, 'cocinero'),
 (15, 'papas', 13, 1, 'cocinero'),
-(16, 'Vino', 195, 1, 'bartender'),
+(16, 'VINO', 195, 1, 'bartender'),
 (17, 'milanesa a caballo', 250, 1, 'cocinero'),
 (18, 'hamburguesa de garbanzo', 200, 1, 'cocinero'),
 (19, 'corona', 95, 1, 'cervecero'),
@@ -613,7 +839,8 @@ INSERT INTO `productos` (`productoId`, `nombre`, `precio`, `activo`, `perfil`) V
 (24, 'quimes', 98, 1, 'cervecero'),
 (25, 'Brahma', 95, 1, 'cervecero'),
 (31, 'milanesas de pollo', 123, 1, 'cocinero'),
-(33, 'Arroz', 77, 1, 'cocinero');
+(33, 'Arroz', 77, 1, 'cocinero'),
+(34, 'Empanadas', 127, 1, 'cocinero');
 
 -- --------------------------------------------------------
 
@@ -652,7 +879,8 @@ INSERT INTO `usuarios` (`empleadoId`, `nombre`, `perfil`, `fechaIngreso`, `estad
 (15, 'Marcos', 'cocinero', '2020-12-11 03:00:00', 'activo', '$2y$10$TuRxeeo5iyNGwrwqB13mKOyO2Tur3afOlTApi1F6NUJBAHssa6VKW'),
 (16, 'Matias', 'cervecero', '2020-12-11 03:00:00', 'activo', '$2y$10$IXTdN0JAtPiEBciX7cbedeTAwDi./S1clNafP9LoAley95qTxLFP.'),
 (17, 'Lucas', 'bartender', '2020-12-11 03:00:00', 'activo', '$2y$10$KziZ//AwwRANIR0HMT6hfuUmFEClaV1DkKSCws7.R.jnh65kwGjsS'),
-(18, 'Debora', 'mozo', '2020-12-11 03:00:00', 'activo', '$2y$10$b0jkBh0kJC4pdoxjc4AaOe5kQUvK9eoeJEDREc6xUkVBqpxbByYc2');
+(18, 'Debora', 'mozo', '2020-12-11 03:00:00', 'activo', '$2y$10$b0jkBh0kJC4pdoxjc4AaOe5kQUvK9eoeJEDREc6xUkVBqpxbByYc2'),
+(19, 'Andy', 'cocinero', '2022-11-27 16:56:53', 'Baja', '$2y$10$iKtSUNYjVUPs2.yfVgrZle5FzVv43Pn7AsKOs1jN2wXWNZMbcj06a');
 
 --
 -- Índices para tablas volcadas
@@ -708,19 +936,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `comentarioId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `comentarioId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `detallespedidos`
 --
 ALTER TABLE `detallespedidos`
-  MODIFY `detallePedidoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=364;
+  MODIFY `detallePedidoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=415;
 
 --
 -- AUTO_INCREMENT de la tabla `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `idLog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=486;
+  MODIFY `idLog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=642;
 
 --
 -- AUTO_INCREMENT de la tabla `mesas`
@@ -732,19 +960,19 @@ ALTER TABLE `mesas`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `pedidoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `pedidoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `productoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `productoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `empleadoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `empleadoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

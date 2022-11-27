@@ -189,7 +189,7 @@ class MesaController extends Mesa implements IApiUsable
         if ($mesa) {
           
           $pedido = PedidoController::obtenerPedidoParaCobrarPorMesaId($mesa->mesaId);
-          
+         
           if($pedido){         
             if($usuario->empleadoId == $pedido->mozoId){
               

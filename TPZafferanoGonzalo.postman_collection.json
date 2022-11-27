@@ -16,7 +16,7 @@
 					"formdata": [
 						{
 							"key": "nombre",
-							"value": "Debora",
+							"value": "Nicanor",
 							"type": "text"
 						},
 						{
@@ -114,7 +114,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:666/app/usuarios/14",
+					"raw": "http://localhost:666/app/usuarios/19",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -123,7 +123,7 @@
 					"path": [
 						"app",
 						"usuarios",
-						"14"
+						"19"
 					]
 				}
 			},
@@ -149,7 +149,7 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "http://localhost:666/app/usuarios/14",
+					"raw": "http://localhost:666/app/usuarios/19",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -158,7 +158,7 @@
 					"path": [
 						"app",
 						"usuarios",
-						"14"
+						"19"
 					]
 				}
 			},
@@ -521,13 +521,13 @@
 					"urlencoded": [
 						{
 							"key": "estado",
-							"value": "",
+							"value": "terminado",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:666/app/pedidos/299",
+					"raw": "http://localhost:666/app/pedidos/101",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -536,7 +536,7 @@
 					"path": [
 						"app",
 						"pedidos",
-						"299"
+						"101"
 					]
 				}
 			},
@@ -643,7 +643,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{mozo2}}",
+							"value": "{{mozo}}",
 							"type": "string"
 						}
 					]
@@ -660,13 +660,14 @@
 						},
 						{
 							"key": "mesaId",
-							"value": "15",
+							"value": "18",
 							"type": "text"
 						},
 						{
 							"key": "productos",
 							"value": "[{\"producto\":\"pizza\", \"cantidad\":\"1\"},{\"producto\":\"vino\", \"cantidad\":\"2\"},{\"producto\":\"cerveza\", \"cantidad\":\"3\"}]",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "fotoUrl",
@@ -678,6 +679,11 @@
 							"value": "[{\"producto\":\"papas\", \"cantidad\":\"2\"},{\"producto\":\"cerveza\", \"cantidad\":\"2\"}]",
 							"type": "text",
 							"disabled": true
+						},
+						{
+							"key": "productos",
+							"value": "[{\"producto\":\"papas\", \"cantidad\":\"2\"},\n{\"producto\":\"arroz\", \"cantidad\":\"2\"},{\"producto\":\"cerveza\", \"cantidad\":\"2\"}]",
+							"type": "text"
 						}
 					]
 				},
@@ -871,7 +877,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{cervecero}}",
+							"value": "{{cervecero2}}",
 							"type": "string"
 						}
 					]
@@ -933,7 +939,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{cocinero2}}",
+							"value": "{{cocinero}}",
 							"type": "string"
 						}
 					]
@@ -993,7 +999,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:666/app/pedidos/verTiempoPedido?codigoMesa=4093f&codigoPedido=60804",
+					"raw": "http://localhost:666/app/pedidos/verTiempoPedido?codigoMesa=4093f&codigoPedido=87fdf",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -1011,7 +1017,7 @@
 						},
 						{
 							"key": "codigoPedido",
-							"value": "60804"
+							"value": "87fdf"
 						}
 					]
 				}
@@ -1057,7 +1063,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{cocinero2}}",
+							"value": "{{cocinero}}",
 							"type": "string"
 						}
 					]
@@ -1088,7 +1094,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{bartender}}",
+							"value": "{{bartender2}}",
 							"type": "string"
 						}
 					]
@@ -1119,7 +1125,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{cervecero}}",
+							"value": "{{cervecero2}}",
 							"type": "string"
 						}
 					]
@@ -1150,7 +1156,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{mozo2}}",
+							"value": "{{mozo}}",
 							"type": "string"
 						}
 					]
@@ -1212,7 +1218,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "{{mozo2}}",
+							"value": "{{mozo}}",
 							"type": "string"
 						}
 					]
@@ -1220,7 +1226,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:666/app/mesas/cobrar/17",
+					"raw": "http://localhost:666/app/mesas/cobrar/15",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -1230,7 +1236,7 @@
 						"app",
 						"mesas",
 						"cobrar",
-						"17"
+						"15"
 					]
 				}
 			},
@@ -1252,7 +1258,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:666/app/mesas/cerrarMesa/18",
+					"raw": "http://localhost:666/app/mesas/cerrarMesa/20",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -1262,7 +1268,7 @@
 						"app",
 						"mesas",
 						"cerrarMesa",
-						"18"
+						"20"
 					]
 				}
 			},
@@ -1308,7 +1314,7 @@
 						},
 						{
 							"key": "comentarios",
-							"value": "No vuelvo mas!!! Horrible",
+							"value": "No vuelvo mas!!! Horrible...",
 							"type": "text"
 						}
 					]

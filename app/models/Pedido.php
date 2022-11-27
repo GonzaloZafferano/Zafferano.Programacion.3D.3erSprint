@@ -177,10 +177,10 @@ class Pedido
     }
     
     public static function obtenerPedidoParaCobrar($mesaId)
-    {
+    {      
         $objAccesoDatos = AccesoDatos::obtenerInstancia();       
         $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos
-         WHERE mesaId = :mesaId AND estado = 'listo para servir' or estado = 'entregado'");
+         WHERE mesaId = :mesaId AND (estado = 'listo para servir' or estado = 'entregado')");
         $consulta->bindValue(':mesaId', $mesaId, PDO::PARAM_INT);
        
         $consulta->execute();
